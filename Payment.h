@@ -1,14 +1,19 @@
 #ifndef PAYMENT_H
 #define PAYMENT_H
 
-typedef enum {
-    PAYPAL,
-    GOOGLEPAY,
-    CREDITCARD,
-    INVALID_PAYMENT_MODE
-} PaymentMode;
+#include <string>
 
-PaymentMode getPaymentModeFromString(const char *modeStr);
+enum class PaymentMode {
+    PayPal,
+    GooglePay,
+    CreditCard,
+    InvalidPaymentMode
+};
+
+// Convert string to PaymentMode enum
+PaymentMode getPaymentModeFromString(const std::string& modeStr);
+
+// Process the payment based on mode and amount
 void checkout(PaymentMode mode, double amount);
 
 #endif // PAYMENT_H
